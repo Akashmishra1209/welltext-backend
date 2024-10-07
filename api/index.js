@@ -1,12 +1,23 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require("cors")
 
 // Use environment variable for MongoDB URI
 const uri = process.env.MONGODB_URI || "mongodb+srv://root:akash%40996@welltext.80rv5.mongodb.net/welltext-backend?retryWrites=true&w=majority&appName=WellText"; // Fallback for local development
 const app = express();
+// Cors Options
+// CORS configuration
+const corsOptions = {
+    origin: ['http://localhost:3000', 'https://welltext.vercel.app'], // Add your frontend domain(s) here
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+    optionsSuccessStatus: 200
+  };
 
 // Middleware to parse JSON requests
 app.use(express.json());
+app.use(cors(corsOptions))
 
 // Connect to MongoDB function
 async function connectMongoDB() {
