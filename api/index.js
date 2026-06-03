@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require("cors")
 
 // Use environment variable for MongoDB URI
-const uri = process.env.MONGODB_URI || "mongodb+srv://root:akash%40996@welltext.80rv5.mongodb.net/welltext-backend?retryWrites=true&w=majority&appName=WellText"; // Fallback for local development
+const uri = process.env.MONGODB_URI// Fallback for local development
 const app = express();
 // Cors Options
 // CORS configuration
